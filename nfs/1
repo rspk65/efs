@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+ServerAdmin pavan.ravinuthala@pennywise.org
+ServerName    loadbalancer-2269749645b8a58c.elb.us-east-1.amazonaws.com
+DocumentRoot  /efs
+#SetEnv APPLICATION_ENV "development"
+<Directory /efs>
+#irectoryIndex iframe1.php
+Options FollowSymlinks 
+AllowOverride All
+Order allow,deny
+Allow from all
+Require all granted
+</Directory>
+
+ErrorLog        logs/nagios.dev.new.-terror_log
+CustomLog       logs/nagios.dev.new-access_log common
+</VirtualHost>
+
